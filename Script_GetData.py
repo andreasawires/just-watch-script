@@ -5,6 +5,9 @@ import pandas as pd
 test_data = {"Titolo Film":["After We Fell", "Dark Blood", "The Hunting", "The Desperate Hour", "Titanic 666"], "TMBD_ID":[744275, 845885, 870671, 764835, 945657]}
 df = pd.DataFrame(test_data)
 
+###DATASET OUTPUT
+data_output = {}
+
 ###IMPORTO MODULO
 just_watch = JustWatch(country="US")
 dati_test = []
@@ -43,5 +46,3 @@ for x in range(len(df.index)):
             dati_test.append("---NOT FOUND---")
 
 print(dati_test)
-
-print("Ciaooooooooo")
