@@ -1,8 +1,11 @@
 from justwatch import JustWatch
 import pandas as pd
+import json
+
 
 ###CREAZIONE DATASET DI TEST
-test_data = {"Titolo Film":["After We Fell", "Dark Blood", "The Hunting", "The Desperate Hour", "Titanic 666"], "TMBD_ID":[744275, 845885, 870671, 764835, 945657]}
+test_data = {"Titolo Film":["After We Fell", "Dark Blood", "The Hunting", "The Desperate Hour", "Titanic 666", "Avatar", "Aftermath", "Aftermath", "Aftermath"], 
+             "TMBD_ID":[744275, 845885, 870671, 764835, 945657, 19995, 33352, 188839, 143800]}
 df = pd.DataFrame(test_data)
 
 ###DATASET OUTPUT
@@ -67,12 +70,12 @@ for x in range(len(df.index)):
             id_justwatch = film_data["id"]
             film_title = film_data["title"]
             film_detail["Title"] = film_title
-            film_detail["tmdb_id"] = tmdb_id
+            film_detail["tmdb_id"] = str(tmdb_id)
             film_detail["providers"] = providers
             data_output[id_justwatch] = film_detail
         
         
-print(data_output)
-
+with open("sample.json", "w") as outfile:
+    json.dump(data_output, outfile)
     
 
